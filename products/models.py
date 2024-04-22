@@ -7,6 +7,7 @@ class Product(models.Model):
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
 
 
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
