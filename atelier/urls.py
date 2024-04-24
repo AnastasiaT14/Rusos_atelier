@@ -15,4 +15,5 @@ urlpatterns = [
     path("", include("config.urls")),
     path('auth/login/', TokenObtainPairView.as_view(), name='login'),
     path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('form/', include('forms.urls')),
 ]
