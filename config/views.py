@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import AboutUs
-from .serializers import AboutUsSerializer
+from .models import AboutUs, Contacts
+from .serializers import AboutUsSerializer, ContactsSerializer
 
 
 class AboutUsAdd(generics.CreateAPIView):
@@ -14,3 +14,17 @@ class AboutUsUpdate(generics.UpdateAPIView):
 class AboutUsDelete(generics.DestroyAPIView):
     queryset = AboutUs.objects.all()
     serializer_class = AboutUsSerializer
+    
+#ContactViews
+
+class ContactsAdd(generics.CreateAPIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactsSerializer
+    
+class ContactsUpdate(generics.UpdateAPIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactsSerializer
+
+class ContactsDelete(generics.DeleteAPIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactsSerializer
