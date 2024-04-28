@@ -1,5 +1,8 @@
+from django.conf.urls.static import static
+from django.contrib import admin
 from django.urls import path
 from . import views
+from ..atelier import settings
 
 urlpatterns = [
     path('product/', views.ProductCreate.as_view(), name='product-create'),
@@ -12,4 +15,6 @@ urlpatterns = [
     path('category/<int:pk>/', views.CategoryDetail.as_view(), name='category-detail'),
     path('category/<int:pk>/', views.CategoryUpdate.as_view(), name='category-update'),
     path('category/<int:pk>/', views.CategoryDelete.as_view(), name='category-delete'),
-]
+    path('admin/', admin.site.urls),
+    path('api/v2/inventory/', include('inventory.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
